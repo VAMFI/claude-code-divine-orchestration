@@ -851,31 +851,31 @@ cat > ~/.claude/settings.json << 'SETTINGS'
         "hooks": [
           {
             "type": "command",
-            "command": "$HOME/.claude/hooks/divine_session_start.sh",
-            "timeout": 30
+            "command": "$HOME/.claude/hooks/divine_session_start.sh"
           }
         ]
       }
     ],
     "PostToolUse": [
       {
-        "matcher": "Edit|Write|MultiEdit",
+        "matcher": {
+          "tools": ["Edit", "Write", "MultiEdit"]
+        },
         "hooks": [
           {
             "type": "command",
-            "command": "$HOME/.claude/hooks/divine_auto_format.sh",
-            "timeout": 30
+            "command": "$HOME/.claude/hooks/divine_auto_format.sh"
           }
         ]
       },
       {
-        "matcher": "Edit|Write|MultiEdit",
+        "matcher": {
+          "tools": ["Edit", "Write", "MultiEdit"]
+        },
         "hooks": [
           {
             "type": "command",
-            "command": "$HOME/.claude/hooks/divine_test_runner.sh",
-            "timeout": 60,
-            "continueOnError": true
+            "command": "$HOME/.claude/hooks/divine_test_runner.sh"
           }
         ]
       }
@@ -885,8 +885,7 @@ cat > ~/.claude/settings.json << 'SETTINGS'
         "hooks": [
           {
             "type": "command",
-            "command": "$HOME/.claude/hooks/divine_security_gate.sh",
-            "timeout": 10
+            "command": "$HOME/.claude/hooks/divine_security_gate.sh"
           }
         ]
       }
